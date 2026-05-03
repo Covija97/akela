@@ -28,3 +28,15 @@ function db(): PDO
 
     return $pdo;
 }
+function ensure_schema(): void
+{
+    $pdo = db();
+    $create = file_get_contents(BASE_PATH . '/database/create.sql');
+    $pdo->exec($create);
+}
+function drop_schema(): void
+{
+    $pdo = db();
+    $drop = file_get_contents(BASE_PATH . '/database/drop.sql');
+    $pdo->exec($drop);
+}

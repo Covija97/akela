@@ -22,3 +22,11 @@ date_default_timezone_set($app['timezone'] ?? 'Europe/Madrid');
 
 // Carga funciones globales de apoyo, conexion PDO y definicion de modulos.
 require BASE_PATH . '/app/support/helpers.php';
+require BASE_PATH . '/app/support/database.php';
+require BASE_PATH . '/app/modules.php';
+
+// En desarrollo muestra errores completos. En produccion deberia estar en false.
+if (($app['debug'] ?? false) === true) {
+    ini_set('display_errors', '1');
+    error_reporting(E_ALL);
+}

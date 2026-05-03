@@ -4,3 +4,6 @@
 declare(strict_types=1);
 
 require dirname(__DIR__) . '/app/init.php';
+
+$modules = require BASE_PATH .'app/modules.php';
+
